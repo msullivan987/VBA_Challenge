@@ -38,7 +38,7 @@ lastRowTicker = Cells(Rows.Count, lastColumn + 2).End(xlUp).Row + 1
     'Create ticker summary list'
     Cells(lastRowTicker, lastColumn + 2).Value = tickerName
     Cells(lastRowTicker, lastColumn + 5).Value = tickerVolume
-    Cells(lastRowTicker, lastColumn + 6).Value = openPrice - closePrice
+    Cells(lastRowTicker, lastColumn + 6).Value = closePrice - openPrice
     Cells(lastRowTicker, lastColumn + 7).Value = (closePrice - openPrice)/openPrice
     
     'Reset ticker volume'
