@@ -6,12 +6,11 @@ Dim closePrice As Double
 Dim tickerVolume As Variant
 
 'Create new summary column headers'
-lastColumn = Cells(1, Columns.Count).End(xlToLeft).Column
 
-Cells(1, lastColumn + 2).Value = "Ticker"
-Cells(1, lastColumn + 3).Value = "Yearly Change"
-Cells(1, lastColumn + 4).Value = "Percent Change"
-Cells(1, lastColumn + 5).Value = "Total Stock Volume"
+Cells(1, 8).Value = "Ticker"
+Cells(1, 9).Value = "Yearly Change"
+Cells(1, 10).Value = "Percent Change"
+Cells(1, 11).Value = "Total Stock Volume"
 
 'Find Last Rows of Data Set'
 lastRowData = Cells(Rows.Count, 1).End(xlUp).Row
@@ -36,10 +35,10 @@ lastRowTicker = Cells(Rows.Count, lastColumn + 2).End(xlUp).Row + 1
     closePrice = Cells(i,6).Value
     
     'Create ticker summary list'
-    Cells(lastRowTicker, lastColumn + 2).Value = tickerName
-    Cells(lastRowTicker, lastColumn + 5).Value = tickerVolume
-    Cells(lastRowTicker, lastColumn + 6).Value = closePrice - openPrice
-    Cells(lastRowTicker, lastColumn + 7).Value = (closePrice - openPrice)/openPrice
+    Cells(lastRowTicker, 8).Value = tickerName
+    Cells(lastRowTicker, 11).Value = tickerVolume
+    Cells(lastRowTicker, 9).Value = closePrice - openPrice
+    Cells(lastRowTicker, 10).Value = (closePrice - openPrice)/openPrice
     
     'Reset ticker volume'
     tickerVolume = 0
