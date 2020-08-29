@@ -37,7 +37,7 @@ lastRowTicker = Cells(Rows.Count, "I").End(xlUp).Row + 1
     'Create ticker summary list'
     Cells(lastRowTicker, "I").Value = tickerName
     Cells(lastRowTicker, "J").Value = closePrice - openPrice
-    Cells(lastRowTicker, "K").Value = (closePrice - openPrice)/openPrice
+    Cells(lastRowTicker, "K").Value = (closePrice - openPrice)/openPrice * 100
     Cells(lastRowTicker, "L").Value = tickerVolume
     
     'Reset ticker volume'
@@ -62,5 +62,7 @@ for i = 2 to finalTickerRow
   Else Cells(i,"J").Value.Interior.ColorIndex = 3
 
   End if
+
+  Cells(i,"K").NumberFormat = "0.00%"
 next i
 End Sub
