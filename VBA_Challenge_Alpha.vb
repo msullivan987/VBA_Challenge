@@ -52,4 +52,15 @@ lastRowTicker = Cells(Rows.Count, "I").End(xlUp).Row + 1
   End If
 Next i
 
+'Formatting the summary table'
+finalTickerRow = Cells(Rows.Count, "I").End(xlUp).Row
+
+for i = 2 to finalTickerRow
+  If Cells(i,"J").Value >= 0 Then
+    Cells(i,"J").Value.Interior.ColorIndex = 4
+
+  Else Cells(i,"J").Value.Interior.ColorIndex = 3
+
+  End if
+next i
 End Sub
