@@ -38,7 +38,7 @@ lastRowTicker = Cells(Rows.Count, "I").End(xlUp).Row + 1
     Cells(lastRowTicker, "I").Value = tickerName
     Cells(lastRowTicker, "J").Value = closePrice - openPrice
     Cells(lastRowTicker, "K").Value = (closePrice - openPrice)/openPrice
-    Cells(lastRowTicker,"L").Value = tickerVolume
+    Cells(lastRowTicker, "L").Value = tickerVolume
     
     'Reset ticker volume'
     tickerVolume = 0
