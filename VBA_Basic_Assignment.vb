@@ -75,44 +75,5 @@ Sub stockSummary()
 
     Cells(i,"K").NumberFormat = "0.00%"
   next i
-
-  'Find and store best and worst performing stocks'
-  maxPercentInc = 0
-  maxPercentDec = 0
-  maxVolume = 0
-  
-For i = 2 To finalTickerRow
-    If Cells(i, "K").Value > maxPercentInc Then
-      maxPercentInc = Cells(i, "K").Value
-      maxPercentIncTicker = Cells(i, "I").Value
-      End If
-    
-    If Cells(i, "K").Value < maxPercentDec Then
-      maxPercentDec = Cells(i, "K").Value
-      maxPercentDecTicker = Cells(i, "I").Value
-      
-    End If
-
-    If Cells(i, "L").Value > maxVolume Then
-      maxVolume = Cells(i, "L").Value
-      maxVolumeTicker = Cells(i, "I").Value
-    End If
-  Next i
-
-  'Create table for best and worst performing stocks'
-  Cells(1, "O").Value = "Ticker"
-  Cells(1, "P").Value = "Value"
-  Cells(2, "N").Value = "Greatest % Increase"
-  Cells(2, "O").Value = maxPercentIncTicker
-  Cells(2, "P").Value = maxPercentInc
-  Cells(2, "P").NumberFormat = "0.00%"
-  Cells(3, "N").Value = "Greatest % Decrease"
-  Cells(3, "O").Value = maxPercentDecTicker
-  Cells(3, "P").Value = maxPercentDec
-  Cells(3, "P").NumberFormat = "0.00%"
-  Cells(4, "N").Value = "Greatest Total Volume"
-  Cells(4, "O").Value = maxVolumeTicker
-  Cells(4, "P").Value = maxVolume
-
  
 End Sub
