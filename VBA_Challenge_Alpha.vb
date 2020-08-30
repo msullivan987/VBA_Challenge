@@ -5,6 +5,12 @@ for each ws in worksheets
   Dim openPrice As Double
   Dim closePrice As Double
   Dim tickerVolume As Variant
+  Dim maxPercentInc As Double
+  Dim maxPercentDec As Double
+  Dim maxVolume As Variant
+  Dim maxPercentIncTicker As String
+  Dim maxPercentDecTicker As String
+  Dim maxVolumeTicker As String
 
   'Create new summary column headers'
 
@@ -69,5 +75,44 @@ for each ws in worksheets
 
     ws.Cells(i,"K").NumberFormat = "0.00%"
   next i
+
+  'Find and store best and worst performing stocks'
+  maxPercentInc = 0
+  maxPercentDec = 0
+  maxVolume = 0
+  
+For i = 2 To finalTickerRow
+    If ws.Cells(i, "K").Value > maxPercentInc Then
+      maxPercentInc = ws.Cells(i, "K").Value
+      maxPercentIncTicker = ws.Cells(i, "I").Value
+      End If
+    
+    If ws.Cells(i, "K").Value < maxPercentDec Then
+      maxPercentDec = ws.Cells(i, "K").Value
+      maxPercentDecTicker = ws.Cells(i, "I").Value
+      
+    End If
+
+    If ws.Cells(i, "L").Value > maxVolume Then
+      maxVolume = ws.Cells(i, "L").Value
+      maxVolumeTicker = ws.Cells(i, "I").Value
+    End If
+  Next i
+
+  'Create table for best and worst performing stocks'
+  ws.Cells(1, "O").Value = "Ticker"
+  ws.Cells(1, "P").Value = "Value"
+  ws.Cells(2, "N").Value = "Greatest % Increase"
+  ws.Cells(2, "O").Value = maxPercentIncTicker
+  ws.Cells(2, "P").Value = maxPercentInc
+  ws.Cells(2, "P").NumberFormat = "0.00%"
+  ws.Cells(3, "N").Value = "Greatest % Decrease"
+  ws.Cells(3, "O").Value = maxPercentDecTicker
+  ws.Cells(3, "P").Value = maxPercentDec
+  ws.Cells(3, "P").NumberFormat = "0.00%"
+  ws.Cells(4, "N").Value = "Greatest Total Volume"
+  ws.Cells(4, "O").Value = maxVolumeTicker
+  ws.Cells(4, "P").Value = maxVolume
+
 next ws  
 End Sub
