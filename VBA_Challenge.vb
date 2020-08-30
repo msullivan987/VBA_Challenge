@@ -28,10 +28,9 @@ for each ws in worksheets
   'Loop through data'
   For i = 2 To lastRowData
 
-  lastRowTicker = ws.Cells(Rows.Count, "I").End(xlUp).Row + 1
-
     If ws.Cells(i, 1).Value <> ws.Cells(i + 1, 1).Value Then
-      
+      lastRowTicker = ws.Cells(Rows.Count, "I").End(xlUp).Row + 1
+     
       'set ticker name'
       tickerName = ws.Cells(i, 1).Value
       

@@ -28,10 +28,10 @@ Sub stockSummary()
   'Loop through data'
   For i = 2 To lastRowData
 
-  lastRowTicker = Cells(Rows.Count, "I").End(xlUp).Row + 1
-
     If Cells(i, 1).Value <> Cells(i + 1, 1).Value Then
       
+        lastRowTicker = Cells(Rows.Count, "I").End(xlUp).Row + 1
+
       'set ticker name'
       tickerName = Cells(i, 1).Value
       
